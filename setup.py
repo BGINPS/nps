@@ -15,7 +15,7 @@ setup(
     version="1.0",
     python_requires=">=3.8",
     install_requires=read_requirements("requirements.txt"),
-    packages=["romeo"],
+    packages=["nps"],
     author="Jiwang, Hailin Pan, Qianhua Zhu,",
     author_email="wangji1@genomics.cn",
     description="NPS is a general toolkit for processing protein electrical signals",
