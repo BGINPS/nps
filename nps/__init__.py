@@ -5,5 +5,5 @@ from . import distance as dis
 from . import denoise as dn
 from . import preprocessing as pp
 from . import density as dn
-from .train import Trainer, seed_everything, VAETrainer
+# from .train import Trainer, seed_everything, VAETrainer
 from . import fasta2pkl as fa2pkl
