@@ -463,14 +463,14 @@ def _prepare_Xy(obj, classes, scale_to, normalize_by_openpore, denoise_by_wavele
 #         return one_read_id, one_X, one_y
 
 
-def construct_dataset(
-    all_read_ids: np.array,
-    X: np.array,
-    y: np.array = [],
-    transform = None,
-) -> Dataset:
-    dataset = Cus_Dataset(all_read_ids=all_read_ids, X=X, y=y, transform=transform)
-    return dataset
+# def construct_dataset(
+#     all_read_ids: np.array,
+#     X: np.array,
+#     y: np.array = [],
+#     transform = None,
+# ) -> Dataset:
+#     dataset = Cus_Dataset(all_read_ids=all_read_ids, X=X, y=y, transform=transform)
+#     return dataset
 
 class Stfs():
     def __init__(self, nperseg=200, noverlap=180):
@@ -481,61 +481,61 @@ class Stfs():
         Zxx = np.abs(Zxx)
         return Zxx
 
-def construct_dataloader_from_dataset(
-    dataset: Dataset,
-    batch_size: int,
-    shuffle: bool = True,
-    drop_last: bool = False,
-) -> DataLoader:
-    dataloader = DataLoader(dataset, batch_size=batch_size, shuffle=shuffle, drop_last=drop_last)
-    return dataloader
+# def construct_dataloader_from_dataset(
+#     dataset: Dataset,
+#     batch_size: int,
+#     shuffle: bool = True,
+#     drop_last: bool = False,
+# ) -> DataLoader:
+#     dataloader = DataLoader(dataset, batch_size=batch_size, shuffle=shuffle, drop_last=drop_last)
+#     return dataloader
     
 
-def construct_dataloader_from_Xy(
-    all_read_ids: np.array,
-    X: np.array,
-    batch_size: int,
-    y: np.array = [],
-    transform = None,
-    shuffle: bool = False,
-    drop_last: bool = False,
-) -> DataLoader:
-    dataset = construct_dataset(all_read_ids=all_read_ids, X=X, y=y, transform=transform)
-    dataloader = construct_dataloader_from_dataset(dataset=dataset, batch_size=batch_size, shuffle=shuffle, drop_last=drop_last)
-    return dataloader
+# def construct_dataloader_from_Xy(
+#     all_read_ids: np.array,
+#     X: np.array,
+#     batch_size: int,
+#     y: np.array = [],
+#     transform = None,
+#     shuffle: bool = False,
+#     drop_last: bool = False,
+# ) -> DataLoader:
+#     dataset = construct_dataset(all_read_ids=all_read_ids, X=X, y=y, transform=transform)
+#     dataloader = construct_dataloader_from_dataset(dataset=dataset, batch_size=batch_size, shuffle=shuffle, drop_last=drop_last)
+#     return dataloader
     
 
 
-def get_train_test_dataloader(
-    X: np.array,
-    y: np.array,
-    test_size: float = 0.3,
-    random_state: int = 0,
-    batch_size: int = 128,
-    remove_final_class_of_train_dataset: bool = False,
-) -> Union[DataLoader, DataLoader]:
-    """Split data into train and test data, and wrap them as dataloader
+# def get_train_test_dataloader(
+#     X: np.array,
+#     y: np.array,
+#     test_size: float = 0.3,
+#     random_state: int = 0,
+#     batch_size: int = 128,
+#     remove_final_class_of_train_dataset: bool = False,
+# ) -> Union[DataLoader, DataLoader]:
+#     """Split data into train and test data, and wrap them as dataloader
 
-    Args:
-        X (np.array): X
-        y (np.array): y
-        test_size (float, optional): the proportion of test dataset. Defaults to 0.3.
-        random_state (int, optional): seed. Defaults to 0.
-        batch_size (int, optional): batch size for model. Defaults to 100.
+#     Args:
+#         X (np.array): X
+#         y (np.array): y
+#         test_size (float, optional): the proportion of test dataset. Defaults to 0.3.
+#         random_state (int, optional): seed. Defaults to 0.
+#         batch_size (int, optional): batch size for model. Defaults to 100.
 
-    Returns:
-        Union[DataLoader, DataLoader]: _description_
-    """
-    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=test_size, random_state=random_state)
-    if remove_final_class_of_train_dataset:
-        need_row_indx = y_train[:,-1] == 0
-        y_train = y_train[need_row_indx]
-        X_train = X_train[need_row_indx]
-    train_dataset = Cus_Dataset(X_train, y_train)
-    test_dataset = Cus_Dataset(X_test, y_test)
-    train_dataloader = DataLoader(train_dataset, batch_size=batch_size, shuffle=True)
-    test_dataloader = DataLoader(test_dataset, batch_size=batch_size, shuffle=True)
-    return train_dataloader, test_dataloader
+#     Returns:
+#         Union[DataLoader, DataLoader]: _description_
+#     """
+#     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=test_size, random_state=random_state)
+#     if remove_final_class_of_train_dataset:
+#         need_row_indx = y_train[:,-1] == 0
+#         y_train = y_train[need_row_indx]
+#         X_train = X_train[need_row_indx]
+#     train_dataset = Cus_Dataset(X_train, y_train)
+#     test_dataset = Cus_Dataset(X_test, y_test)
+#     train_dataloader = DataLoader(train_dataset, batch_size=batch_size, shuffle=True)
+#     test_dataloader = DataLoader(test_dataset, batch_size=batch_size, shuffle=True)
+#     return train_dataloader, test_dataloader
 
 
 
