@@ -2,5 +2,5 @@
 
 
 <p align="justify">
-Text. 
+In addition to mass spectrometry, protein sequences can also be sequenced through electrical signals. NPS is a general toolkit for processing protein electrical signals.
 </p
