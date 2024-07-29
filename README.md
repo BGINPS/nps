@@ -9,6 +9,7 @@ In addition to mass spectrometry, protein sequences can also be sequenced throug
 
 # Installation
 
+
 ```
 conda create -n nps python=3.8 -y && conda activate nps
 pip install git+https://github.com/BGINPS/nps.git
