@@ -16,3 +16,7 @@ pip install git+https://github.com/BGINPS/nps.git
 ```
 
 # Installation
+```
+conda create -n nps python=3.8 -y && conda activate nps
+pip install git+https://github.com/BGINPS/nps.git
+```
