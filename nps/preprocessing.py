@@ -442,25 +442,25 @@ def _prepare_Xy(obj, classes, scale_to, normalize_by_openpore, denoise_by_wavele
     all_read_ids = np.array(all_read_ids)
     return all_read_ids, X, y # X: 2d, y: 1d
 
-class Cus_Dataset(Dataset):
-    def __init__(self, all_read_ids, X, y = [], transform = None):
-        self.all_read_ids = all_read_ids
-        self.X = X
-        self.y = y if len(y)>0 else np.zeros(len(X))
-        self.transform = transform
+# class Cus_Dataset(Dataset):
+#     def __init__(self, all_read_ids, X, y = [], transform = None):
+#         self.all_read_ids = all_read_ids
+#         self.X = X
+#         self.y = y if len(y)>0 else np.zeros(len(X))
+#         self.transform = transform
 
-    def __len__(self):
-        return len(self.X)
+#     def __len__(self):
+#         return len(self.X)
 
-    def __getitem__(self, idx):
-        one_read_id = self.all_read_ids[idx]
-        one_X = self.X[idx]
-        one_y = self.y[idx]
+#     def __getitem__(self, idx):
+#         one_read_id = self.all_read_ids[idx]
+#         one_X = self.X[idx]
+#         one_y = self.y[idx]
         
-        if self.transform:
-            one_X = self.transform(one_X)
+#         if self.transform:
+#             one_X = self.transform(one_X)
             
-        return one_read_id, one_X, one_y
+#         return one_read_id, one_X, one_y
 
 
 def construct_dataset(
