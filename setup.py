@@ -1,5 +1,4 @@
 from setuptools import setup
-from nps import __version__
 
 
 def read_requirements(path):
@@ -10,6 +9,7 @@ def read_requirements(path):
 with open("README.md", "r", encoding="UTF-8") as fh:
     long_description = fh.read()
 
+exec(open('nps/version.py').read())
 
 setup(
     name="nps",

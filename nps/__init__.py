@@ -8,5 +8,4 @@ from . import density as dn
 # from .train import Trainer, seed_everything, VAETrainer
 from . import fasta2pkl as fa2pkl
 
-
-__version__ = '1.0.0'
+from .version import __version__
