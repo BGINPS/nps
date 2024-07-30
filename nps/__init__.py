@@ -9,4 +9,4 @@ from . import density as dn
 from . import fasta2pkl as fa2pkl
 
 
-__version__ = 'v1.0.0'
+__version__ = '1.0.0'
