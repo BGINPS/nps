@@ -1,4 +1,5 @@
 from setuptools import setup
+from nps import __version__
 
 
 def read_requirements(path):
@@ -12,7 +13,7 @@ with open("README.md", "r", encoding="UTF-8") as fh:
 
 setup(
     name="nps",
-    version="1.0",
+    version=__version__,
     python_requires=">=3.8",
     install_requires=read_requirements("requirements.txt"),
     packages=["nps"],

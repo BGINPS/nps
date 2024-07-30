@@ -7,3 +7,6 @@ from . import preprocessing as pp
 from . import density as dn
 # from .train import Trainer, seed_everything, VAETrainer
 from . import fasta2pkl as fa2pkl
+
+
+__version__ = 'v1.0.0'
